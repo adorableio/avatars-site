@@ -1,0 +1,23 @@
+doctype html
+html
+head
+  title adorable-avatars-site
+  link(href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700|Source+Code+Pro:400,700' rel='stylesheet')
+  link(href="/assets/css/main.css" rel="stylesheet" )
+
+  link(rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/zenburn.min.css")
+
+body
+  header
+    .row
+      .small-12.columns
+        h1 Adorable Avatars
+
+  section
+    .row
+      .small-12.columns
+        include:md ../data/README.md
+  script(src="/vendor/jquery/dist/jquery.min.js")
+  script(src="/vendor/handlebars/handlebars.js")
+  script(src="/vendor/ember/ember.js")
+  script(src="/assets/js/app.js")

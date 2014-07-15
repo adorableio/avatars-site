@@ -1,0 +1,16 @@
+{
+  "watch": [
+    "data/**/*",
+    "lib/**/*",
+    "app.coffee"
+  ],
+  "ignore": [
+    "app/**/*",
+    ".generated/**/*",
+    "postinstall.js",
+    "start.js"
+  ],
+  "env": {
+    "NODE_ENV": "development"
+  }
+}
