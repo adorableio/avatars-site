@@ -22,7 +22,7 @@ console.log vendorPath
 
 port = process.env.PORT || 3002
 if port > 3002
-  webserver.listen(process.env.PORT)
+  webserver.listen(port)
 else
   findPort port, port + 100, (ports) ->
     webserver.listen(ports[0])
