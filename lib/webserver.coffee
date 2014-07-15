@@ -21,8 +21,13 @@ app.use('/vendor', express.static(vendorPath))
 console.log vendorPath
 
 port = process.env.PORT || 3002
-findPort port, port + 100, (ports) ->
-  webserver.listen(ports[0])
+if port == 3002
+  findPort port, port + 100, (ports) ->
+    webserver.listen(ports[0])
+else
+  webserver.listen(port)
+
+webserver.on 'listening', ->
   address = webserver.address()
   console.log "[Firepit] Server running at http://#{address.address}:#{address.port}".green
 
