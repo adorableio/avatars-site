@@ -21,11 +21,11 @@ app.use('/vendor', express.static(vendorPath))
 console.log vendorPath
 
 port = process.env.PORT || 3002
-if port == 3002
+if port > 3002
+  webserver.listen(process.env.PORT)
+else
   findPort port, port + 100, (ports) ->
     webserver.listen(ports[0])
-else
-  webserver.listen(port)
 
 webserver.on 'listening', ->
   address = webserver.address()
