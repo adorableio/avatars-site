@@ -13,13 +13,13 @@ generatedPath = path.join(basePath, '.generated')
 vendorPath    = path.join(basePath, 'bower_components')
 faviconPath   = path.join(basePath, 'app', 'favicon.ico')
 
+# Configure the express server
 app.engine('.html', require('hbs').__express)
-
 app.use(favicon(faviconPath))
 app.use('/assets', express.static(generatedPath))
 app.use('/vendor', express.static(vendorPath))
-console.log vendorPath
 
+# Find an available port
 port = process.env.PORT || 3002
 if port > 3002
   webserver.listen(port)
@@ -27,10 +27,12 @@ else
   findPort port, port + 100, (ports) ->
     webserver.listen(ports[0])
 
+# Notify the console that we're connected and on what port
 webserver.on 'listening', ->
   address = webserver.address()
   console.log "[Firepit] Server running at http://#{address.address}:#{address.port}".green
 
+# Routes
 app.get '/', (req, res) -> res.render(generatedPath + '/index.html')
 
 app.get /^\/(\w+)(?:\.)?(\w+)?/, (req, res) ->

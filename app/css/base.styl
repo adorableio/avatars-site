@@ -1,6 +1,6 @@
 
 body {
-  background: white;
+  background: off-white;
 }
 
 a {
@@ -11,3 +11,121 @@ a {
   }
 }
 
+.input-container {
+  display: inline-block;
+}
+label {
+  display: block;
+  &.inline { display: inline-block; }
+}
+
+//
+// User Container
+//
+.user-card {
+  background: white;
+  padding: 25px;
+
+  &:before {
+    background-image: url(https://pbs.twimg.com/profile_banners/14392014/1398709333/1500x500);
+    background-size: cover;
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 60%;
+    left: 0;
+    z-index: 2;
+  }
+
+  > * {
+    position: relative;
+    z-index: 3;
+  }
+
+  h2, h3, p {
+    margin: 0;
+    line-height: 1.2em;
+  }
+
+  hr {
+    border: none;
+    border-bottom: 1px solid light-grey;
+  }
+
+  .name {
+    position: relative;
+    z-index: 4;
+    &:before {
+      background-color: white;
+      content: '';
+      position: absolute;
+      top: -20px;
+      bottom: 200px;
+      left: 0;
+      right: 0;
+      z-index: -1;
+    }
+  }
+
+
+  .container {
+    border-radius: 1000px;
+    text-align: center;
+    img {
+      max-width: 100%;
+      width: auto;
+    }
+  }
+
+  .position {
+    color: grey;
+  }
+}
+
+
+.fade { color: grey; }
+.input-wrapper {
+  span { display: inline-block; }
+  .bullet {
+    content: ' ';
+  }
+  input[type=text] {
+    min-width: 30px;
+    width: 50px;
+  }
+  input[type=range] {
+    position: absolute;
+    width: 50px;
+  }
+  .edit {
+    outline: none;
+    padding: 0 2px;
+    color: black;
+    box-shadow: 0 1px 0 black;
+
+    &:focus {
+      background: yellow;
+    }
+  }
+}
+
+code {
+  background: rgba(light-grey, .25);
+  box-shadow: 0 0 0 1px light-grey;
+  display: block;
+  padding: 15px 15px 15px 45px;
+  position: relative;
+  overflow-x: scroll;
+  white-space: nowrap;
+
+  .line-numbers {
+    border-right: 1px solid light-grey;
+    color: light-grey;
+    padding: 15px 10px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+  }
+}

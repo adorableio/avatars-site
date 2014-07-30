@@ -126,7 +126,9 @@ gulp.task('coffee', function() {
 
 gulp.task('jade', function() {
   return gulp.src(paths.jadePath)
-    .pipe(jade({ pretty: true }))
+    .pipe(jade({ pretty: true })
+      .on('error', gutil.log)
+      .on('error', gutil.beep))
     .pipe(gulp.dest(paths.assetsOutput))
 });
 

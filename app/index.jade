@@ -2,10 +2,10 @@ doctype html
 html
 head
   title adorable-avatars-site
-  link(href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700|Source+Code+Pro:400,700' rel='stylesheet')
+  //- link(href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700|Source+Code+Pro:400,700' rel='stylesheet')
   link(href="/assets/css/main.css" rel="stylesheet" )
 
-  link(rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/zenburn.min.css")
+  //- link(rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/zenburn.min.css")
 
 body
   header
@@ -15,10 +15,59 @@ body
 
   section
     .row
-      .small-12.columns
-        include:md ../data/README.md
+      .small-6.medium-6.columns
+        .row
+          .small-12.small-center.columns
+            .input-container
+              label Size
+              input#sizex.edit(type="range" value='100' min='40' max='400' data-for='.size-value')
+            .input-container
+              label Name
+              input#name.edit(type="text" data-for='.name-value' placeholder='enter text' value="abott")
+            .input-container
+              input#png.edit(type="checkbox" data-for='.png-value' checked='true')
+              label.inline(for='png') .png
+
+        .row
+          .small-12.small-center.columns
+            code
+              .line-numbers
+                .number 1
+                .number 2
+                .number 3
+              .line
+                span.fade &lt;div class="container"&gt;
+              .input-wrapper
+                span.bullet.fade &nbsp;
+                span.bullet.fade &nbsp;
+                span.fade &lt;img src="http://api.adorable.io/avatar/
+                span.size-value 100
+                span x
+                span.size-value 100
+                span.fade /
+                span.name-value name
+                span.png-value .png
+                span.fade " /&gt;
+              .line
+                span.fade &lt;/div&gt;
+
+      .small-12.medium-6.columns
+        .user-card.small-12.small-center.columns
+          .container
+            img#demo-image(src="http://localhost:3003/avatar/300x300/bloop.png")
+            h2.name Sir Dude Awesome
+            p.position Creative Hugger
+            hr
+            .row
+              .small-4.columns
+                h3 Followers
+                p 417
+              .small-4.columns
+                h3 Following
+                p 234
+              .small-4.columns
+                h3 High fives
+                p 1240
 
   script(src="/vendor/jquery/dist/jquery.min.js")
-  script(src="/vendor/handlebars/handlebars.js")
-  script(src="/vendor/ember/ember.js")
   script(src="/assets/js/app.js")
