@@ -2,7 +2,7 @@ _          = require('underscore')
 characters = require('./characters')
 
 class App
-  baseurl  : "http://localhost:3003/avatar/"
+  baseurl  : "http://api.adorable.io/avatar/"
   sizexurl : "300"
   sizeyurl : "300"
   nameurl  : "bloop.png"
@@ -39,7 +39,7 @@ class App
   setExtension: (e, $for) -> $for.toggle(e.target.checked)
 
   setURL: ->
-    url = "#{@baseurl}#{@sizexurl}/#{@nameurl}"
+    url = "#{@baseurl}#{@sizexurl}x#{@sizexurl}/#{@nameurl}"
     $('#demo-image').attr('src', url)
 
 module.exports = new App()
