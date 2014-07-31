@@ -2,20 +2,24 @@ _          = require('underscore')
 characters = require('./characters')
 
 class App
-  baseurl  : "http://api.adorable.io/avatar/"
-  sizexurl : "180"
-  sizeyurl : "180"
-  nameurl  : "abott@adorable.png"
+  BASEURL  : "http://api.adorable.io/avatar/"
+  url      : ''
+  size     : "180"
+  radius   : "0"
+  name     : "abott@adorable.png"
   maxsize  : 400
   tmpValue : ''
 
   constructor: ->
-    @_handleInputEvent = _.throttle @handleInputEvent, 300
-    @_flash = _.debounce @flash, 300
+    @_handleInputEvent = _.throttle @handleInputEvent, 100
+    @_setImageStyles =  _.debounce @setImageStyles, 100
+    @_requestImage = _.debounce @requestImage, 400
     @setupEvents()
 
   setupEvents: ->
-    $('input').on 'input', @_handleInputEvent
+    $('input').on 'input', @handleInputEvent
+    $('input[type=text]').on 'input', @_requestImage
+    $('input').on 'change', @requestImage
     $('#png').on 'change', @handleInputEvent
 
   handleInputEvent: (e) =>
@@ -27,11 +31,17 @@ class App
 
     # Otherwise
     value = $(e.target).val()
-    @[e.target.id + 'url'] = value
+    @[e.target.id] = value
     $for.text(value)
-    @_flash($for)
-    @setURL()
 
+    @url = "#{@BASEURL}#{@size}/#{@name}"
+    @_setImageStyles()
+
+  requestImage: (e) =>
+    $el = $(e.target)
+    $for = $($el.data('for'))
+    @flash($for)
+    @setImageURL()
 
   flash: ($for) ->
     $for.addClass('flash')
@@ -44,8 +54,12 @@ class App
 
   setExtension: (e, $for) -> $for.toggle(e.target.checked)
 
-  setURL: ->
-    url = "#{@baseurl}#{@sizexurl}x#{@sizexurl}/#{@nameurl}"
-    $('#demo-image').attr('src', url)
+  setImageURL: -> $('#demo-image').attr('src', @url)
+
+  setImageStyles: ->
+    $('#demo-image').css
+      'width': @size
+      'height': @size
+      'border-radius': "#{@radius}%"
 
 module.exports = new App()

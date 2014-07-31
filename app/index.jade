@@ -12,60 +12,81 @@ body
     .row
       .small-12.text-center.columns
         h1 Adorable Avatars
-        p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique nihil tempora maxime quam sed eveniet magni, earum magnam eos consequatur. Asperiores voluptatum beatae quo, sed, officiis porro totam esse ullam.
+        p Avatars are earthly creatures that serve as proxies for gods. In the web world, they just represent people, and they're usually small images.
+        a.button.lame(href="#what") What are you talking about?
         a.button(href="#demo") Try it out
 
-  #demo
-  section
+
+
+  section#what
     .row
-      .small-12.medium-8.small-center.columns
-        .row
-          .small-12.text-center.columns
-            h2.title Zis is zee demo!
-            .input-container
-              label Size
-              input#sizex.edit(type="range" value='180' min='40' max='400' data-for='.size-value')
-            .input-container
-              label Name
-              input#name.edit(type="text" data-for='.name-value' placeholder='enter text' value="abott@adorable" maxlength='32')
-            .input-container.checkbox
+      .small-12.medium-8.columns
+        h2 What's the Adorable Avatars service?
+        p It's an interface to a better universe. With a simple route, your face will be filled with consistently-linked avatar glory!
+        h3 Huh? Consistently-linked avatar glory?
+        p Whenever you make a request to Adorable Avatars, using an identifier like "abott@adorable.io," we give you an image for you to use on your page. Most importantly, it's the same image! Every. Single. Time.
+
+      .small-12.medium-4.columns
+        img(src="http://api.adorable.io/avatar/400x400/thing1")
+
+    .row
+      .small-12.medium-4.columns
+        img(src="http://api.adorable.io/avatar/400x400/thing2")
+      .small-12.medium-8.columns
+        h2 Why would I use it?
+        p What if you're developing a feature like member lists or profiles, but you don't have any images to use? Just give us your user's identifier and we'll give you their avatar image! That's it.
+        p Already have avatars implemented in your application? Use Adorable Avatars as a fallback and get rid of those gray silhouettes!
+
+    .row
+      .small-12.medium-8.small-center.text-center.columns
+        a.button(href="#demo") I just want to check it out!
+
+  section#demo
+
+    .row
+      .small-12.text-center.columns
+        h2.title Zis is zee demo!
+    .row
+      .small-12.medium-6.columns
+        .form-card
+          .input-container.size
+            label Size
+              span.size-value 180
+              span px
+            input#size.edit(type="range" value='180' min='40' max='285' data-for='.size-value')
+          .input-container.name
+            label identifier
+            input#name.edit(type="text" data-for='.name-value' placeholder='enter text' value="abott@adorable" maxlength='32')
+            .checkbox
               input#png.edit(type="checkbox" data-for='.png-value' checked='true')
               label.inline(for='png') .png
 
+          .input-container.radius
+            label Border-radius
+              span.radius-value 0
+              span %
+              small &nbsp; (just for funsies)
+            input#radius.edit(type="range" value='0' min='0' max='100' data-for='.radius-value')
+
+      .small-12.medium-6.columns
+        .container
+          img#demo-image(src="http://api.adorable.io/avatar/400x400/abott@adorable.png" style="width: 180px; height: 180px")
+
     .row.code-row
       .code-wrapper
-        code
-          .line-numbers
-            .number 1
-          .input-wrapper
-            span.fade &lt;img src="http://api.adorable.io/avatar/
-            span.size-value 180
-            span x
-            span.size-value 180
-            span.fade /
-            span.name-value abott@adorable
-            span.png-value .png
-            span.fade " /&gt;
+        code.block
+          span.fade http://api.adorable.io/avatar/
+          span.size-value 180
+          span.fade /
+          span.name-value abott@adorable
+          span.png-value .png
 
+  footer
     .row
-      .small-12.medium-8.small-center.columns
-        .small-12.columns
-          .user-card.small-12.small-center.columns
-            .container
-              img#demo-image(src="http://api.adorable.io/avatar/180x180/abott@adorable.png")
-              h2.name Sir Dude Awesome
-              p.position Creative Hugger
-              hr
-              .row
-                .small-4.columns
-                  h3 Followers
-                  p 417
-                .small-4.columns
-                  h3 Following
-                  p 234
-                .small-4.columns
-                  h3 High fives
-                  p 1240
-
+      .small-12.columns
+        p
+        - for (var i = 0; i < 1000; i++) {
+          a.button(href="http://adorable.io") <span style="font-size: #{i}px">Adorable.io</span></a> &nbsp;
+        - }
   script(src="/vendor/jquery/dist/jquery.min.js")
   script(src="/assets/js/app.js")

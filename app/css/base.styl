@@ -1,6 +1,7 @@
 html, body {
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 body {
@@ -10,177 +11,49 @@ body {
 header {
   background: purple;
   padding: 60px 0;
+  text-align: center;
 
   h1 {
     font-size: 94px;
   }
   h1, p { color: white; }
 
-  .button {
-    background: red;
-    color: white;
-    display: inline-block;
-    padding: 15px 25px 16px;
-    margin-bottom: 1em;
+}
+
+.button {
+  background-color: red;
+  color: white;
+  display: inline-block;
+  padding: 15px 25px 16px;
+  margin-bottom: 1em;
+
+  &.lame {
+    background-color: light-grey;
   }
 }
 
 section {
-  padding: 40px 0 120px;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  .row {
+    clearfix();
+  }
+
   h2.title {
-    color: aqua;
-    font-size: 94px;
-    margin-bottom: 40px;
-    font-style: italic;
+    margin: 0;
+    padding: 0;
     font-weight: 100;
   }
 }
 
-a {
-  color: blue;
-  text-decoration: none;
-  &:hover {
-    text-decoration: underline;
-  }
-}
+#what {
+  background: aqua;
+  padding-bottom: 60px;
+  padding-top: 60px;
 
-.input-container {
-  display: inline-block;
-}
-label {
-  display: block;
-  &.inline { display: inline-block; }
-}
-
-//
-// User Container
-//
-.user-card {
-  background: white;
-  padding: 25px;
-
-  &:before {
-    background-image: url(/assets/img/low-poly-texture-18.png);
-    background-size: cover;
-    background-position: 50% top;
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 60%;
-    left: 0;
-    z-index: 2;
-  }
-
-  > * {
-    position: relative;
-    z-index: 3;
-  }
-
-  h2, h3, p {
-    margin: 0;
-    line-height: 1.2em;
-  }
-
-  hr {
-    border: none;
-    border-bottom: 1px solid light-grey;
-  }
-
-  .name {
-    position: relative;
-    z-index: 4;
-    &:before {
-      background-color: white;
-      content: '';
-      display: block;
-      height: 60px;
-      position: absolute;
-      top: -20px;
-      bottom: 200px;
-      left: -25px;
-      right: -25px;
-      z-index: -1;
-    }
-  }
-
-
-  .container {
-    border-radius: 1000px;
-    text-align: center;
-    img {
-      max-width: 100%;
-      width: auto;
-      position: relative;
-      z-index: 100;
-    }
-  }
-
-  .position {
-    color: grey;
-  }
-}
-
-
-
-.input-wrapper {
-  span { display: inline-block; }
-  .bullet {
-    content: ' ';
-  }
-  input[type=text] {
-    min-width: 30px;
-    width: 50px;
-  }
-  input[type=range] {
-    position: absolute;
-    width: 50px;
-  }
-  .edit {
-    outline: none;
-    padding: 0 2px;
-    color: black;
-    box-shadow: 0 1px 0 black;
-
-    &:focus {
-      background: yellow;
-    }
-  }
-}
-
-code-fade-color = light-grey;
-
-.code-row {
-  text-align: center;
-}
-.code-wrapper {
-  width: auto;
-  display: inline-block;
-}
-
-code {
-  background-color: code-background-color;
-  box-shadow: 0 0 0 1px code-fade-color,
-              0 3px 0 0 rgba(code-fade-color, .65);
-  display: block;
-  padding: 15px 15px 15px 45px;
-  position: relative;
-  overflow-x: scroll;
-  white-space: nowrap;
-
-  .fade {
-    color: darken(code-fade-color, 15%);
-    font-weight: 400;
-  }
-
-  .line-numbers {
-    border-right: 1px solid code-fade-color;
-    color: code-fade-color;
-    padding: 15px 10px;
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
+  h2.title {
+    font-size: 54px;
   }
 }
 
@@ -189,21 +62,141 @@ input-border = light-grey;
 input-border-hover = lighten(red, 65%);
 input-border-focus = red;
 
-.input-container { margin-right: 15px; }
-.input-container.checkbox {
-  background: transparent;
-  border-left: 1px solid light-grey;
-  margin: 0;
-  padding: 0;
-  height: 36px;
-  width: 45px;
-  margin-left: -64px;
-  &:hover {
-    background: rgba(purple, .15);
-    input + label { color: white; }
-    input:checked + label { color: red; }
+code-fade-color = light-grey;
+
+#demo {
+  background-image: url('/assets/img/header-bg.jpg');
+  background-position: 50%;
+  background-size: cover;
+  height: 490px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  position: relative;
+  text-align: center;
+
+  h2.title {
+    color: black;
+    font-size: 44px;
+    margin-bottom: 10px;
+    font-style: italic;
   }
+
+  .form-card {
+    background: rgba(black, .8);
+    padding: 20px 0 20px 20px;
+
+    [class*='-value'] {
+      position: relative;
+      padding: 5px 23px 5px 5px;
+      margin: 0 -23px 0 0;
+    }
+    .input-container {
+      box-shadow: 0 1px 0 rgba(aqua, .2);
+      display: block;
+      position: relative;
+      padding-bottom: 15px;
+      padding-right: 15px;
+      margin-bottom: 15px;
+      text-align: left;
+
+      &:last-child {
+        box-shadow: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+
+      .checkbox {
+        background: transparent;
+        display: block;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        margin: 0;
+        padding: 0 15px;
+        margin-right: 0;
+
+        input + label { color: rgba(white, .2); }
+        input:checked + label { color: aqua; }
+
+        &:hover {
+          input + label { color: white; }
+        }
+
+        label {
+          line-height: 57px;
+        }
+      }
+
+      label {
+        color: rgba(white, .45);
+        display: block;
+        font-size: 11px;
+        text-transform: uppercase;
+
+        span {
+          color: white;
+          font-size: 18px;
+          text-transform: none;
+          z-index: 300;
+          position: relative;
+        }
+      }
+    }
+  }
+
+  .container {
+    display: inline-block;
+    width: auto;
+  }
+
+
+  .code-row {
+    text-align: center;
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    right: 0;
+  }
+
+  .code-wrapper {
+    width: auto;
+    display: inline-block;
+  }
+
+  code {
+    background-color: code-background-color;
+    padding: 2px 5px;
+    display: inline-block;
+
+    &.block {
+      display: block;
+      padding: 15px;
+      position: relative;
+      overflow: none;
+      white-space: nowrap;
+    }
+
+    .fade {
+      color: darken(code-fade-color, 15%);
+      font-weight: 400;
+    }
+
+    .line-numbers {
+      border-right: 1px solid code-fade-color;
+      color: code-fade-color;
+      padding: 15px 10px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+    }
+  }
+
 }
+
+
+
 input, label {
   outline: none;
   vertical-align: middle;
@@ -213,42 +206,38 @@ label.inline {
 }
 
 
-input[type='text'] {
-  box-shadow: 0 0 0 1px input-border,
-              inset 0 2px 0 0 rgba(code-fade-color, .35);
+input[type=text] {
+  background: none;
+  box-shadow: 0 1px 0 rgba(input-border, .08);
   border: none;
+  color: white;
   font-size: 16px;
   margin: 0;
-  padding: 0 50px 0 15px;
+  padding: 0;
   height: 36px;
-  &:hover { box-shadow: inset 0 0 0 1px input-border-hover; }
-  &:focus { box-shadow: inset 0 0 0 1px input-border-focus; }
+  width: 100%;
+  &:hover { box-shadow: 0 1px 0 input-border-hover; }
+  &:focus { box-shadow: 0 1px 0 input-border-focus; }
 }
 
 input[type=range] {
   transition: all .6s ease;
   -webkit-appearance: none !important
   border-radius: 1000px;
-  box-shadow: inset 0 1px 0 light-grey,
-              0 1px 0 white;
+  box-shadow: none;
   border: none;
   background-color: rgba(light-grey, .35);
   margin: 0;
   padding: 0 5px;
   height: 6px;
+  width: 100%;
   outline: none;
-  &:hover {
-    &::-webkit-slider-thumb { box-shadow: inset 0 0 0 1px input-border-hover; }
-  }
-  &:focus {
-    &::-webkit-slider-thumb { box-shadow: inset 0 0 0 1px input-border-focus; }
-  }
 }
 
 input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none !important
   border-radius: 1000px;
-  box-shadow: inset 0 0 0 1px input-border;
+  box-shadow: none;
   background-color: white;
   width: 20px;
   height: 20px;
@@ -281,14 +270,27 @@ flash(background-color, text-color) {
   color: text-color;
 }
 @-webkit-keyframes flash {
-  0% { flash: white, red; }
+  0% { flash: white, white; }
   50% { flash: red, white; }
-  100% { flash: white, red; }
+  100% { flash: rgba(red, 0), white; }
 }
 
 [class*='-value'] {
   &.flash {
     animation: flash 600ms 1 ease-in;
+    position: relative;
+    z-index: 100;
   }
 
 }
+
+
+
+a {
+  color: blue;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
