@@ -10,64 +10,58 @@ head
 body
   header
     .row
-      .small-12.columns
+      .small-12.text-center.columns
         h1 Adorable Avatars
 
   section
     .row
-      .small-6.medium-6.columns
+      .small-12.medium-8.small-center.columns
         .row
-          .small-12.small-center.columns
+          .small-12.text-center.columns
             .input-container
               label Size
               input#sizex.edit(type="range" value='100' min='40' max='400' data-for='.size-value')
             .input-container
               label Name
-              input#name.edit(type="text" data-for='.name-value' placeholder='enter text' value="abott")
-            .input-container
+              input#name.edit(type="text" data-for='.name-value' placeholder='enter text' value="abott@adorable.io" maxlength='32')
+            .input-container.checkbox
               input#png.edit(type="checkbox" data-for='.png-value' checked='true')
               label.inline(for='png') .png
 
-        .row
-          .small-12.small-center.columns
-            code
-              .line-numbers
-                .number 1
-                .number 2
-                .number 3
-              .line
-                span.fade &lt;div class="container"&gt;
-              .input-wrapper
-                span.bullet.fade &nbsp;
-                span.bullet.fade &nbsp;
-                span.fade &lt;img src="http://api.adorable.io/avatar/
-                span.size-value 100
-                span x
-                span.size-value 100
-                span.fade /
-                span.name-value name
-                span.png-value .png
-                span.fade " /&gt;
-              .line
-                span.fade &lt;/div&gt;
+    .row.code-row
+      .code-wrapper
+        code
+          .line-numbers
+            .number 1
+          .input-wrapper
+            span.fade &lt;img src="http://api.adorable.io/avatar/
+            span.size-value 100
+            span x
+            span.size-value 100
+            span.fade /
+            span.name-value abott@adorable.io
+            span.png-value .png
+            span.fade " /&gt;
 
-      .small-12.medium-6.columns
-        .user-card.small-12.small-center.columns
-          .container
-            img#demo-image(src="http://api.adorable.io/avatar/300x300/bloop.png")
-            h2.name Sir Dude Awesome
-            p.position Creative Hugger
-            hr
-            .row
-              .small-4.columns
-                h3 Followers
-                p 417
-              .small-4.columns
-                h3 Following
-                p 234
-              .small-4.columns
-                h3 High fives
-                p 1240
+    .row
+      .small-12.medium-8.small-center.columns
+        .small-12.columns
+          .user-card.small-12.small-center.columns
+            .container
+              img#demo-image(src="http://api.adorable.io/avatar/300x300/abott@adorable.io.png")
+              h2.name Sir Dude Awesome
+              p.position Creative Hugger
+              hr
+              .row
+                .small-4.columns
+                  h3 Followers
+                  p 417
+                .small-4.columns
+                  h3 Following
+                  p 234
+                .small-4.columns
+                  h3 High fives
+                  p 1240
 
   script(src="/vendor/jquery/dist/jquery.min.js")
   script(src="/assets/js/app.js")

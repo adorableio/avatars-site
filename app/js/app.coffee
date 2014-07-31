@@ -11,6 +11,7 @@ class App
 
   constructor: ->
     @_handleInputEvent = _.throttle @handleInputEvent, 300
+    @_flash = _.debounce @flash, 300
     @setupEvents()
 
   setupEvents: ->
@@ -28,8 +29,13 @@ class App
     value = $(e.target).val()
     @[e.target.id + 'url'] = value
     $for.text(value)
+    @_flash($for)
     @setURL()
 
+
+  flash: ($for) ->
+    $for.addClass('flash')
+    setTimeout (-> $for.removeClass('flash')), 600
 
   processCharacter: (e) ->
     if $(e.target).hasClass('num')
