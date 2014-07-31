@@ -5,7 +5,7 @@ class App
   baseurl  : "http://api.adorable.io/avatar/"
   sizexurl : "300"
   sizeyurl : "300"
-  nameurl  : "bloop.png"
+  nameurl  : "abott@adorable.png"
   maxsize  : 400
   tmpValue : ''
 

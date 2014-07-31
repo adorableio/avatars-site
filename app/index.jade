@@ -12,18 +12,22 @@ body
     .row
       .small-12.text-center.columns
         h1 Adorable Avatars
+        p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique nihil tempora maxime quam sed eveniet magni, earum magnam eos consequatur. Asperiores voluptatum beatae quo, sed, officiis porro totam esse ullam.
+        a.button(href="#demo") Try it out
 
+  #demo
   section
     .row
       .small-12.medium-8.small-center.columns
         .row
           .small-12.text-center.columns
+            h2.title Zis is zee demo!
             .input-container
               label Size
               input#sizex.edit(type="range" value='100' min='40' max='400' data-for='.size-value')
             .input-container
               label Name
-              input#name.edit(type="text" data-for='.name-value' placeholder='enter text' value="abott@adorable.io" maxlength='32')
+              input#name.edit(type="text" data-for='.name-value' placeholder='enter text' value="abott@adorable" maxlength='32')
             .input-container.checkbox
               input#png.edit(type="checkbox" data-for='.png-value' checked='true')
               label.inline(for='png') .png
@@ -39,7 +43,7 @@ body
             span x
             span.size-value 100
             span.fade /
-            span.name-value abott@adorable.io
+            span.name-value abott@adorable
             span.png-value .png
             span.fade " /&gt;
 
@@ -48,7 +52,7 @@ body
         .small-12.columns
           .user-card.small-12.small-center.columns
             .container
-              img#demo-image(src="http://api.adorable.io/avatar/300x300/abott@adorable.io.png")
+              img#demo-image(src="http://api.adorable.io/avatar/300x300/abott@adorable.png")
               h2.name Sir Dude Awesome
               p.position Creative Hugger
               hr
