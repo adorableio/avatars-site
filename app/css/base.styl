@@ -27,8 +27,9 @@ label {
   padding: 25px;
 
   &:before {
-    background-image: url(https://pbs.twimg.com/profile_banners/14392014/1398709333/1500x500);
+    background-image: url(/assets/img/low-poly-texture-18.png);
     background-size: cover;
+    background-position: 50% top;
     content: '';
     position: absolute;
     top: 0;
@@ -59,11 +60,13 @@ label {
     &:before {
       background-color: white;
       content: '';
+      display: block;
+      height: 60px;
       position: absolute;
       top: -20px;
       bottom: 200px;
-      left: 0;
-      right: 0;
+      left: -25px;
+      right: -25px;
       z-index: -1;
     }
   }
@@ -75,6 +78,8 @@ label {
     img {
       max-width: 100%;
       width: auto;
+      position: relative;
+      z-index: 100;
     }
   }
 
@@ -177,7 +182,7 @@ label.inline {
 
 input[type='text'] {
   box-shadow: 0 0 0 1px input-border,
-              inset 0 2px 0 0 rgba(code-fade-color, .45);
+              inset 0 2px 0 0 rgba(code-fade-color, .35);
   border: none;
   font-size: 16px;
   margin: 0;
