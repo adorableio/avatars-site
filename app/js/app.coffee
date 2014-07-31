@@ -3,8 +3,8 @@ characters = require('./characters')
 
 class App
   baseurl  : "http://api.adorable.io/avatar/"
-  sizexurl : "300"
-  sizeyurl : "300"
+  sizexurl : "180"
+  sizeyurl : "180"
   nameurl  : "abott@adorable.png"
   maxsize  : 400
   tmpValue : ''
