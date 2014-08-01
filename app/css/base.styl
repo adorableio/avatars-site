@@ -1,3 +1,5 @@
+
+
 html, body {
   margin: 0;
   padding: 0;
@@ -6,29 +8,74 @@ html, body {
 
 body {
   background: off-white;
+
+  &.scrolled {
+    navigation {
+      background: rgba(purple, .98);
+      position: fixed;
+    }
+  }
+
+  &.open {
+    navigation {
+      height: 100%;
+      background: rgba(purple, .98);
+    }
+  }
 }
 
-header {
-  background: purple;
-  padding: 60px 0;
-  text-align: center;
+// --------------------------------------------------
+// Generic styles
+//
 
-  h1 {
-    font-size: 94px;
-  }
-  h1, p { color: white; }
+h1 {
+  font-size: 54px;
+}
+h2 {
+  font-size: 34px;
+}
 
+a {
+  color: blue;
+  text-decoration: none;
 }
 
 .button {
   background-color: red;
   color: white;
+  cursor: pointer;
   display: inline-block;
   padding: 15px 25px 16px;
   margin-bottom: 1em;
+  margin-right: (column-gutter/2);
 
   &.lame {
-    background-color: light-grey;
+    background-color: transparent;
+    color: aqua;
+    box-shadow: 0 0 0 1px aqua;
+    &:hover {
+      color: black;
+    }
+  }
+
+  &:hover, &.zeroclipboard-is-hover {
+    background-color: aqua;
+    text-decoration: none;
+  }
+}
+
+label {
+  color: rgba(white, .45);
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+
+  span {
+    color: white;
+    font-size: 18px;
+    text-transform: none;
+    z-index: 300;
+    position: relative;
   }
 }
 
@@ -47,168 +94,296 @@ section {
   }
 }
 
-#what {
-  background: aqua;
-  padding-bottom: 60px;
-  padding-top: 60px;
+.container {
+  display: inline-block;
+  width: auto;
+}
 
-  h2.title {
-    font-size: 54px;
+
+// --------------------------------------------------
+// <field>-value flash animation things
+//
+
+flash(background-color, text-color) {
+  background-color: background-color;
+  color: text-color;
+}
+
+@-webkit-keyframes flash {
+  0% { flash: white, white; }
+  50% { flash: red, white; }
+  100% { flash: rgba(red, 0), white; }
+}
+
+@-webkit-keyframes white-flash {
+  0% { flash: white, white; }
+  50% { flash: red, white; }
+  100% { flash: white, red; }
+}
+
+addflash(name) {
+  animation: name 600ms 1 ease-in;
+  position: relative;
+  z-index: 100;
+}
+
+[class*='-value'] {
+  position: relative;
+  padding: 0 5px;
+  margin: 0 -5px
+  .flash {
+    addflash(flash);
   }
 }
 
 
-input-border = light-grey;
-input-border-hover = lighten(red, 65%);
-input-border-focus = red;
+// --------------------------------------------------
+// navigation
+//
 
-code-fade-color = light-grey;
 
+#top,
+#what,
 #demo {
+  display: block;
+  position: relative;
+  top: -140px;
+  visibility: hidden;
+}
+
+navigation {
+  transition: all .3s ease;
+  position: absolute;
+  background:  transparent;
+  display: block;
+  text-align: center;
+  height: 20px;
+  overflow: hidden;
+  padding: 18px 0 20px;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 1000;
+
+
+  .menu {
+    inline-icon: 'menu';
+    display: block;
+    font-size: 1.6em;
+    text-align: right;
+    margin-right: 20px;
+    span { display: none; }
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+
+    li {
+      display: block;
+      margin: 0 0 1em;
+      &:last-child { margin-right: 0; }
+      [class^='icon-']:before {
+        font-size: 36px;
+        position: relative;
+        top: -2px;
+      }
+      a {
+        font-family: header-font;
+        font-size: 18px;
+        font-weight: 300;
+        display: block;
+        padding: 10px 15px 0;
+        color: red;
+        box-shadow: 0 0 0 1px transparent;
+        vertical-align: top;
+        &:hover {
+          background: aqua;
+          color: black;
+          box-shadow: 0 0 0 1px aqua;
+        }
+      }
+    }
+  }
+
+  @media medium-up {
+
+    padding: 0.5em 0.8em;
+    height: auto;
+
+    .menu { display: none; }
+
+    navigation {
+      height: auto;
+    }
+    ul {
+      height: auto;
+      opacity: 1;
+      li { display: inline-block; }
+    }
+
+  }
+}
+
+// --------------------------------------------------
+// header
+//
+header {
+  background: purple;
+  padding: 8em 0 60px 0;
+  text-align: center;
+
+  h1 {
+    font-size: 94px;
+  }
+  h1, p { color: white; }
+}
+
+
+// --------------------------------------------------
+// #what
+//
+#what + section {
+  background: white;
+  padding-bottom: 60px;
+  padding-top: 60px;
+}
+
+
+// --------------------------------------------------
+// #demo
+//
+#demo + section {
   background-image: url('/assets/img/header-bg.jpg');
   background-position: 50%;
   background-size: cover;
-  height: 490px;
-  padding-bottom: 20px;
-  padding-top: 20px;
+  height: 560px;
+  padding-bottom: 60px;
+  padding-top: 60px;
   position: relative;
   text-align: center;
 
-  h2.title {
-    color: black;
-    font-size: 44px;
-    margin-bottom: 10px;
-    font-style: italic;
+  h1 {
+    color: white;
+    margin-bottom: 20px;
   }
 
-  .form-card {
-    background: rgba(black, .8);
-    padding: 20px 0 20px 20px;
-
-    [class*='-value'] {
-      position: relative;
-      padding: 5px 23px 5px 5px;
-      margin: 0 -23px 0 0;
-    }
-    .input-container {
-      box-shadow: 0 1px 0 rgba(aqua, .2);
-      display: block;
-      position: relative;
-      padding-bottom: 15px;
-      padding-right: 15px;
-      margin-bottom: 15px;
-      text-align: left;
-
-      &:last-child {
-        box-shadow: none;
-        margin-bottom: 0;
-        padding-bottom: 0;
-      }
-
-      .checkbox {
-        background: transparent;
-        display: block;
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        top: 0;
-        margin: 0;
-        padding: 0 15px;
-        margin-right: 0;
-
-        input + label { color: rgba(white, .2); }
-        input:checked + label { color: aqua; }
-
-        &:hover {
-          input + label { color: white; }
-        }
-
-        label {
-          line-height: 57px;
-        }
-      }
-
-      label {
-        color: rgba(white, .45);
-        display: block;
-        font-size: 11px;
-        text-transform: uppercase;
-
-        span {
-          color: white;
-          font-size: 18px;
-          text-transform: none;
-          z-index: 300;
-          position: relative;
-        }
-      }
-    }
+  img {
+    box-shadow: 0 2px 0 0 rgba(purple, .2);
   }
 
-  .container {
-    display: inline-block;
-    width: auto;
-  }
 
+  //
+  // Code block
 
   .code-row {
     text-align: center;
     position: absolute;
-    bottom: -20px;
+    bottom: -32px;
     left: 0;
     right: 0;
-  }
 
-  .code-wrapper {
-    width: auto;
-    display: inline-block;
-  }
-
-  code {
-    background-color: code-background-color;
-    padding: 2px 5px;
-    display: inline-block;
-
-    &.block {
-      display: block;
-      padding: 15px;
-      position: relative;
-      overflow: none;
-      white-space: nowrap;
+    .code-wrapper {
+      width: auto;
+      display: inline-block;
     }
 
-    .fade {
-      color: darken(code-fade-color, 15%);
-      font-weight: 400;
+    #copy-button {
+      display: inline-block;
+      height: 52px;
+      font-size: 18px;
+      line-height: 1;
+      margin: 0;
+      padding: 17px 15px 15px;
+      vertical-align: top;
     }
 
-    .line-numbers {
-      border-right: 1px solid code-fade-color;
-      color: code-fade-color;
-      padding: 15px 10px;
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
+    code {
+      background-color: code-background-color;
+      display: inline-block;
+      line-height: 1;
+      padding: 2px 5px;
+
+      &.flash {
+        addflash(white-flash);
+      }
+
+      &.block {
+        height: 52px;
+        padding: 20px 15px 15px;
+        position: relative;
+        overflow: none;
+        vertical-align: top;
+        white-space: nowrap;
+      }
+
+      .fade {
+        color: darken(code-fade-color, 15%);
+        font-weight: 400;
+      }
     }
   }
-
 }
 
 
+
+// --------------------------------------------------
+// Form card stuff
+//
+.form-card {
+  background: rgba(black, .8);
+  padding: 20px 0 20px 20px;
+
+  [class*='-value'] {
+    position: relative;
+    padding: 5px 23px 5px 5px;
+    margin: 0 -23px 0 0;
+  }
+
+  .input-container {
+    box-shadow: 0 1px 0 rgba(aqua, .2);
+    display: block;
+    position: relative;
+    padding-bottom: 15px;
+    padding-right: 15px;
+    margin-bottom: 15px;
+    text-align: left;
+
+    &:last-child {
+      box-shadow: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .checkbox {
+      background: transparent;
+      display: block;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      margin: 0;
+      padding: 0 15px;
+      margin-right: 0;
+
+      input + label { color: rgba(white, .2); }
+      input:checked + label { color: aqua; }
+
+      &:hover input + label { color: white; }
+
+      label { line-height: 57px; }
+    }
+  }
+}
 
 input, label {
   outline: none;
   vertical-align: middle;
 }
-label.inline {
-  line-height: 1;
-}
 
 
 input[type=text] {
   background: none;
-  box-shadow: 0 1px 0 rgba(input-border, .08);
   border: none;
   color: white;
   font-size: 16px;
@@ -216,8 +391,6 @@ input[type=text] {
   padding: 0;
   height: 36px;
   width: 100%;
-  &:hover { box-shadow: 0 1px 0 input-border-hover; }
-  &:focus { box-shadow: 0 1px 0 input-border-focus; }
 }
 
 input[type=range] {
@@ -239,6 +412,7 @@ input[type=range]::-webkit-slider-thumb {
   border-radius: 1000px;
   box-shadow: none;
   background-color: white;
+  cursor: pointer;
   width: 20px;
   height: 20px;
 
@@ -265,32 +439,30 @@ input[type=checkbox] {
 }
 
 
-flash(background-color, text-color) {
-  background-color: background-color;
-  color: text-color;
-}
-@-webkit-keyframes flash {
-  0% { flash: white, white; }
-  50% { flash: red, white; }
-  100% { flash: rgba(red, 0), white; }
-}
 
-[class*='-value'] {
-  &.flash {
-    animation: flash 600ms 1 ease-in;
-    position: relative;
-    z-index: 100;
+
+// --------------------------------------------------
+// footer
+//
+
+$logotype-letters-color = red;
+$logotype-shadow-color = rgba(red, 0);
+$logotype-sheen-color = white;
+
+footer {
+  padding: 60px 0 20px 0;
+  text-align: center;
+
+  p {
+    font-size: 23px;
   }
-
-}
-
-
-
-a {
-  color: blue;
-  text-decoration: none;
-  &:hover {
-    text-decoration: underline;
+  svg {
+    width: 88px;
+    // margin: 0 0 -20px 0;
+    margin: 0 0 12px 0;
+    vertical-align: bottom;
+    #letters { fill: $logotype-letters-color; }
+    #shadow { fill: $logotype-shadow-color; }
+    #sheen { fill: $logotype-sheen-color; }
   }
 }
-

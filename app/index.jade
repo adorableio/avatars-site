@@ -8,31 +8,53 @@ head
   //- link(rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/zenburn.min.css")
 
 body
+
+  navigation
+    a.menu
+      span Menu
+    ul
+      li
+        a(href="#top")
+          i.icon-top
+          | Tippy-top
+      li
+        a(href="#what")
+          i.icon-what
+          | What is this?
+      li
+        a(href="#demo")
+          i.icon-demo
+          | Try it out
+
+  #top
   header
     .row
       .small-12.text-center.columns
         h1 Adorable Avatars
+    .row
+      .small-12.medium-8.small-center.text-center.columns
         p Avatars are earthly creatures that serve as proxies for gods. In the web world, they just represent people, and they're usually small images.
         a.button.lame(href="#what") What are you talking about?
         a.button(href="#demo") Try it out
 
-
-
-  section#what
+  #what
+  section
     .row
-      .small-12.medium-8.columns
-        h2 What's the Adorable Avatars service?
+      .small-12.text-center.columns
+        h1 What's the Adorable Avatars service?
+    .row
+      .small-12.medium-8.small-center.columns
         p It's an interface to a better universe. With a simple route, your face will be filled with consistently-linked avatar glory!
         h3 Huh? Consistently-linked avatar glory?
         p Whenever you make a request to Adorable Avatars, using an identifier like "abott@adorable.io," we give you an image for you to use on your page. Most importantly, it's the same image! Every. Single. Time.
 
-      .small-12.medium-4.columns
-        img(src="http://api.adorable.io/avatar/400x400/thing1")
+      //- .small-12.medium-4.columns
+      //-   img(src="http://api.adorable.io/avatar/400x400/thing1")
 
     .row
-      .small-12.medium-4.columns
-        img(src="http://api.adorable.io/avatar/400x400/thing2")
-      .small-12.medium-8.columns
+      //- .small-12.medium-4.columns
+      //-   img(src="http://api.adorable.io/avatar/400x400/thing2")
+      .small-12.medium-8.small-center.columns
         h2 Why would I use it?
         p What if you're developing a feature like member lists or profiles, but you don't have any images to use? Just give us your user's identifier and we'll give you their avatar image! That's it.
         p Already have avatars implemented in your application? Use Adorable Avatars as a fallback and get rid of those gray silhouettes!
@@ -41,22 +63,23 @@ body
       .small-12.medium-8.small-center.text-center.columns
         a.button(href="#demo") I just want to check it out!
 
-  section#demo
+  #demo
+  section
 
     .row
       .small-12.text-center.columns
-        h2.title Zis is zee demo!
+        h1 Zee demo!
     .row
       .small-12.medium-6.columns
         .form-card
           .input-container.size
             label Size
-              span.size-value 180
+              span.size-value 285
               span px
-            input#size.edit(type="range" value='180' min='40' max='285' data-for='.size-value')
+            input#size.edit(type="range" value='285' min='40' max='285' data-for='.size-value')
           .input-container.name
             label identifier
-            input#name.edit(type="text" data-for='.name-value' placeholder='enter text' value="abott@adorable" maxlength='32')
+            input#name.edit(type="text" data-for='.name-value' placeholder='enter text' value="abott@adorable.io" maxlength='32')
             .checkbox
               input#png.edit(type="checkbox" data-for='.png-value' checked='true')
               label.inline(for='png') .png
@@ -70,25 +93,28 @@ body
 
       .small-12.medium-6.columns
         .container
-          img#demo-image(src="http://api.adorable.io/avatar/400x400/abott@adorable.png" style="width: 180px; height: 180px")
+          img#demo-image(src="http://api.adorable.io/avatar/400x400/abott@adorable.io.png" style="width: 285px; height: 285px")
 
     .row.code-row
       .code-wrapper
         code.block
           span.fade http://api.adorable.io/avatar/
-          span.size-value 180
+          span.size-value 285
           span.fade /
           span.name-value abott@adorable
           span.png-value .png
+        a#copy-button.button(data-clipboard-text="argh" title="Click to copy me.") Copy to Clipboard
+
 
   footer
     .row
       .small-12.columns
         p
-        - for (var i = 0; i < 1000; i++) {
-          a.button(href="http://adorable.io") <span style="font-size: #{i}px">Adorable.io</span></a> &nbsp;
-        - }
+          | Adorable Avatars is an <a href="http://adorable.io" title="adorable.io">
+          include img/adorable.svg
+          | </a> creation.
   script(src="/vendor/jquery/dist/jquery.min.js")
+  script(src="/vendor/zeroclipboard/dist/ZeroClipboard.min.js")
   script(src="/assets/js/app.js")
   script(src="//use.typekit.net/vge6uut.js")
   script.

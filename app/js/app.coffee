@@ -1,12 +1,14 @@
+
 _          = require('underscore')
 characters = require('./characters')
+navigation = require('./navigation')
 
 class App
   BASEURL  : "http://api.adorable.io/avatar/"
   url      : ''
-  size     : "180"
+  size     : "285"
   radius   : "0"
-  name     : "abott@adorable.png"
+  name     : "abott@adorable.io.png"
   maxsize  : 400
   tmpValue : ''
 
@@ -14,6 +16,7 @@ class App
     @_handleInputEvent = _.throttle @handleInputEvent, 100
     @_setImageStyles =  _.debounce @setImageStyles, 100
     @_requestImage = _.debounce @requestImage, 400
+    @url = "#{@BASEURL}#{@size}/#{@name}"
     @setupEvents()
 
   setupEvents: ->
@@ -62,4 +65,19 @@ class App
       'height': @size
       'border-radius': "#{@radius}%"
 
-module.exports = new App()
+
+client = new ZeroClipboard($("#copy-button"))
+
+client.on "ready", (readyEvent) ->
+  # alert( "ZeroClipboard SWF is ready!" )
+
+  client.on "copy", (e) ->
+    clipboard = e.clipboardData
+    clipboard.setData('text/plain', app.url)
+
+  client.on "aftercopy", (e) ->
+    $el   = $(e.target)
+    $prev = $el.prev()
+    app.flash($prev)
+
+module.exports = app = new App()
