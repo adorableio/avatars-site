@@ -263,11 +263,14 @@ header {
   background-image: url('/assets/img/header-bg.jpg');
   background-position: 50%;
   background-size: cover;
-  height: 560px;
   padding-bottom: 60px;
   padding-top: 60px;
   position: relative;
   text-align: center;
+
+  @media medium-up {
+    height: 560px;
+  }
 
   h1 {
     color: white;
