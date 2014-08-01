@@ -11,7 +11,7 @@ body {
 
   &.scrolled {
     navigation {
-      background: rgba(purple, .98);
+      background: rgba(purple, .95);
       position: fixed;
     }
   }
@@ -19,7 +19,7 @@ body {
   &.open {
     navigation {
       height: 100%;
-      background: rgba(purple, .98);
+      background: rgba(purple, .95);
     }
   }
 }
@@ -29,10 +29,17 @@ body {
 //
 
 h1 {
-  font-size: 54px;
+  color: red;
+  font-size: 48px;
 }
 h2 {
-  font-size: 34px;
+  color: red;
+  font-size: 32px;
+}
+
+p.subtitle {
+  color: rgba(black, .75);
+  font-size: 24px;
 }
 
 a {
@@ -230,7 +237,10 @@ navigation {
 // header
 //
 header {
-  background: purple;
+  background-color: purple;
+  background-image: url('/assets/img/header-bg.jpg');
+  background-position: 50%;
+  background-size: cover;
   padding: 8em 0 60px 0;
   text-align: center;
 
@@ -252,7 +262,29 @@ header {
 #what + section {
   background: white;
   padding-bottom: 60px;
-  padding-top: 60px;
+
+  text-align: center;
+  h1 {
+    line-height: 1;
+  }
+
+  p {
+    margin-bottom: 20px;
+  }
+
+  .sub-section {
+    h1 { color: white; }
+    p { color: white; }
+    background-color: dark-aqua;
+    margin-bottom: 60px;
+    padding-top: 60px;
+  }
+
+  code {
+    background-color: rgba(light-grey, .5);
+    padding-left: 5px;
+    padding-right: 5px;
+  }
 }
 
 
@@ -260,7 +292,7 @@ header {
 // #demo
 //
 #demo + section {
-  background-image: url('/assets/img/header-bg.jpg');
+  background-image: url('/assets/img/demo-bg.jpg');
   background-position: 50%;
   background-size: cover;
   padding-bottom: 60px;
