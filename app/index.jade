@@ -1,137 +1,137 @@
 include abott
 doctype html
 html
-head
-  title Adorable Avatars!
-  meta(name='viewport', content='initial-scale=1, maximum-scale=1, width=device-width, user-scalable=no')
-  link(href="/assets/css/main.css" rel="stylesheet" )
+  head
+    title Adorable Avatars!
+    meta(name='viewport', content='initial-scale=1, maximum-scale=1, width=device-width, user-scalable=no')
+    link(href="/assets/css/main.css" rel="stylesheet" )
 
-body
+  body
 
-  navigation
-    a.menu
-      span Menu
-    ul
-      li
-        a(href="#top")
-          i.icon-top
-          | Tippy-top
-      li
-        a(href="#what")
-          i.icon-what
-          | What is this?
-      li
-        a(href="#demo")
-          i.icon-demo
-          | Try it out
+    navigation
+      a.menu
+        span Menu
+      ul
+        li
+          a(href="#top")
+            i.icon-top
+            | Tippy-top
+        li
+          a(href="#what")
+            i.icon-what
+            | What is this?
+        li
+          a(href="#demo")
+            i.icon-demo
+            | Try it out
 
-  #top
-  header
-    .row
-      .small-12.text-center.columns
-        h1 Adorable Avatars
-    .row
-      .small-12.medium-8.small-center.text-center.columns
-        p Avatars are earthly creatures that serve as proxies for gods. In the web world, they just represent people, and they're usually small images.
-    .row
-      .small-12.medium-10.small-center.text-center.columns
-
-        a.button.lame(href="#what") What are you talking about?
-        a.button(href="#demo") Try it out
-
-  #what
-  section
-    .sub-section
+    #top
+    header
       .row
         .small-12.text-center.columns
-          h1 What's the Adorable Avatars service?
+          h1 Adorable Avatars
       .row
         .small-12.medium-8.small-center.text-center.columns
-          p.subtitle It's an interface to a better universe. With a simple route, your face will be filled with consistently-linked avatar glory!
-    .row
-      .small-12.medium-8.small-center.columns
-        h2 Wait, how are Adorable Avatars different?
-        p Whenever you make a request to Adorable Avatars, using an identifier like <code>abott@adorable.io</code>, we give you an image for you to use on your page. Most importantly, it's the same image! Every. Single. Time.
+          p Avatars are earthly creatures that serve as proxies for gods. In the web world, they just represent people, and they're usually small images.
+      .row
+        .small-12.medium-10.small-center.text-center.columns
 
-      //- .small-12.medium-4.columns
-      //-   img(src="http://api.adorable.io/avatar/400x400/thing1")
+          a.button.lame(href="#what") What are you talking about?
+          a.button(href="#demo") Try it out
 
-    .row
-      //- .small-12.medium-4.columns
-      //-   img(src="http://api.adorable.io/avatar/400x400/thing2")
-      .small-12.medium-8.small-center.columns
-        h2 Why would I use it?
-        p What if you're developing a feature like member lists or profiles, but you don't have any images to use? Just give us your user's identifier and we'll give you their avatar image! That's it.
-        p Already have avatars implemented in your application? Use Adorable Avatars as a fallback and get rid of those gray silhouettes!
+    #what
+    section
+      .sub-section
+        .row
+          .small-12.text-center.columns
+            h1 What's the Adorable Avatars service?
+        .row
+          .small-12.medium-8.small-center.text-center.columns
+            p.subtitle It's an interface to a better universe. With a simple route, your face will be filled with consistently-linked avatar glory!
+      .row
+        .small-12.medium-8.small-center.columns
+          h2 Wait, how are Adorable Avatars different?
+          p Whenever you make a request to Adorable Avatars, using an identifier like <code>abott@adorable.io</code>, we give you an image for you to use on your page. Most importantly, it's the same image! Every. Single. Time.
 
-    .row
-      .small-12.medium-8.small-center.text-center.columns
-        a.button(href="#demo") I just want to check it out!
+        //- .small-12.medium-4.columns
+        //-   img(src="http://api.adorable.io/avatar/400x400/thing1")
 
-  #demo
-  section
+      .row
+        //- .small-12.medium-4.columns
+        //-   img(src="http://api.adorable.io/avatar/400x400/thing2")
+        .small-12.medium-8.small-center.columns
+          h2 Why would I use it?
+          p What if you're developing a feature like member lists or profiles, but you don't have any images to use? Just give us your user's identifier and we'll give you their avatar image! That's it.
+          p Already have avatars implemented in your application? Use Adorable Avatars as a fallback and get rid of those gray silhouettes!
 
-    .row
-      .small-12.text-center.columns
-        h1 Zee demo!
-    .row
-      .small-12.medium-6.columns
-        .form-card
-          .input-container.size
-            label Size
-              span.size-value 285
-              span px
-            input#size.edit(type="range" value='285' min='40' max='285' data-for='.size-value')
-          .input-container.name
-            label identifier
-            input#name.edit(type="text" data-for='.name-value' placeholder='enter text' value="abott@adorable.io" maxlength='32')
-            .checkbox
-              input#png.edit(type="checkbox" data-for='.png-value' checked='true')
-              label.inline(for='png') .png
+      .row
+        .small-12.medium-8.small-center.text-center.columns
+          a.button(href="#demo") I just want to check it out!
 
-          .input-container.radius
-            label Border-radius
-              span.radius-value 0
-              span %
-              small &nbsp; (just for funsies)
-            input#radius.edit(type="range" value='0' min='0' max='100' data-for='.radius-value')
+    #demo
+    section
 
-      .small-12.medium-6.columns
-        .container
-          img#demo-image(src="http://api.adorable.io/avatar/400x400/abott@adorable.io.png" style="width: 285px; height: 285px")
+      .row
+        .small-12.text-center.columns
+          h1 Zee demo!
+      .row
+        .small-12.medium-6.columns
+          .form-card
+            .input-container.size
+              label Size
+                span.size-value 285
+                span px
+              input#size.edit(type="range" value='285' min='40' max='285' data-for='.size-value')
+            .input-container.name
+              label identifier
+              input#name.edit(type="text" data-for='.name-value' placeholder='enter text' value="abott@adorable.io" maxlength='32')
+              .checkbox
+                input#png.edit(type="checkbox" data-for='.png-value' checked='true')
+                label.inline(for='png') .png
 
-    .row.code-row
-      .code-wrapper
-        code.block
-          span.fade http://api.adorable.io/avatar/
-          span.size-value 285
-          span.fade /
-          span.name-value abott@adorable
-          span.png-value .png
-        a#copy-button.button(data-clipboard-text="argh" title="Click to copy me.") Copy to Clipboard
+            .input-container.radius
+              label Border-radius
+                span.radius-value 0
+                span %
+                small &nbsp; (just for funsies)
+              input#radius.edit(type="range" value='0' min='0' max='100' data-for='.radius-value')
+
+        .small-12.medium-6.columns
+          .container
+            img#demo-image(src="http://api.adorable.io/avatar/400x400/abott@adorable.io.png" style="width: 285px; height: 285px")
+
+      .row.code-row
+        .code-wrapper
+          code.block
+            span.fade http://api.adorable.io/avatar/
+            span.size-value 285
+            span.fade /
+            span.name-value abott@adorable
+            span.png-value .png
+          a#copy-button.button(data-clipboard-text="argh" title="Click to copy me.") Copy to Clipboard
 
 
-  footer
-    .row
-      .small-12.columns
-        p
-          | Adorable Avatars is an <a href="http://adorable.io" title="adorable.io">
-          include img/adorable.svg
-          | </a> creation.
-  script(src="/vendor/jquery/dist/jquery.min.js")
-  script(src="/vendor/zeroclipboard/dist/ZeroClipboard.min.js")
-  script(src="/assets/js/app.js")
-  script(src="//use.typekit.net/vge6uut.js")
-  script.
-    //- tepeskwarkt
-    try{Typekit.load();}catch(e){}
+    footer
+      .row
+        .small-12.columns
+          p
+            | Adorable Avatars is an <a href="http://adorable.io" title="adorable.io">
+            include img/adorable.svg
+            | </a> creation.
+    script(src="/vendor/jquery/dist/jquery.min.js")
+    script(src="/vendor/zeroclipboard/dist/ZeroClipboard.min.js")
+    script(src="/assets/js/app.js")
 
-    //- ggigielleyiks
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    script(src="//use.typekit.net/vge6uut.js")
+    script.
+      //- tepeskwarkt
+      try{Typekit.load();}catch(e){}
+      //- ggigielleyiks
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-    ga('create', 'UA-24198715-4', 'auto');
-    ga('send', 'pageview');
+      ga('create', 'UA-24198715-4', 'auto');
+      ga('send', 'pageview');
 
