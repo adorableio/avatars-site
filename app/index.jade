@@ -78,17 +78,19 @@ html
       .row
         .small-12.medium-6.columns
           .form-card
-            .input-container.size
-              label Size
-                span.size-value 285
-                span px
-              input#size.edit(type="range" value='285' min='40' max='285' data-for='.size-value')
+
             .input-container.name
               label identifier
               input#name.edit(type="text" data-for='.name-value' placeholder='enter text' value="abott@adorable.io" maxlength='32')
               .checkbox
                 input#png.edit(type="checkbox" data-for='.png-value' checked='true')
                 label.inline(for='png') .png
+
+            .input-container.size
+              label Size
+                span.size-value 285
+                span px
+              input#size.edit(type="range" value='285' min='40' max='285' data-for='.size-value')
 
             .input-container.radius
               label Border-radius
