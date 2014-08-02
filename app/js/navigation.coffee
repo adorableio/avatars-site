@@ -14,7 +14,7 @@ class Navigation
       $('body').addClass('open')
 
   handleScroll: (e) =>
-    if $(e.target).scrollTop() <= 10
+    if $(e.target).scrollTop() <= 120
       $('body').removeClass('scrolled')
     else
       $('body').addClass('scrolled')
