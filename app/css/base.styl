@@ -12,7 +12,6 @@ body {
   &.scrolled {
     .navigation {
       background: rgba(purple, .95);
-      position: fixed;
     }
   }
 
@@ -156,19 +155,19 @@ addflash(name) {
 #demo {
   display: block;
   position: relative;
-  top: -140px;
+  top: -70px;
   visibility: hidden;
 }
 
 .navigation {
   transition: all .3s ease;
-  position: absolute;
+  position: fixed;
   background:  transparent;
   display: block;
   text-align: center;
-  height: 80px;
+  height: 70px;
   overflow: hidden;
-  padding: 18px 0 20px;
+  padding: 12px 0 0;
   left: 0;
   right: 0;
   top: 0;
@@ -191,22 +190,25 @@ addflash(name) {
 
     li {
       display: block;
-      margin: 0 0 1em;
+      margin: -6px 0 6px;
       &:last-child { margin-right: 0; }
       [class^='icon-']:before {
         font-size: 36px;
+        line-height: 1;
+        height: 100%;
         position: relative;
-        top: -2px;
+        top: 2px;
+        vertical-align: bottom;
       }
       a {
         font-family: header-font;
         font-size: 18px;
         font-weight: 300;
         display: block;
-        padding: 10px 15px 0;
+        padding: 10px 15px 8px;
         color: red;
         box-shadow: 0 0 0 1px transparent;
-        vertical-align: top;
+        vertical-align: bottom;
         &:hover {
           background: aqua;
           color: black;
@@ -219,7 +221,7 @@ addflash(name) {
   @media medium-up {
 
     padding: 0 0.8em;
-    height: 84px;
+    height: 74px;
 
     .menu { display: none; }
 
@@ -229,7 +231,13 @@ addflash(name) {
     ul {
       height: auto;
       opacity: 1;
-      li { display: inline-block; }
+      li {
+        display: inline-block;
+        a {
+          margin-top: 0;
+          padding-top: 5px;
+        }
+      }
     }
 
   }

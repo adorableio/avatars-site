@@ -1,23 +1,25 @@
 
 _    = require "underscore"
 
-$ ->
+class Navigation
 
-  toggleMenu = ->
+  closeMenu: ->
+    $('body').removeClass('open')
+
+  toggleMenu: =>
+    console.log 'toggleMenu'
     if $('body.open').length > 0
-      closeMenu()
+      @closeMenu()
     else
       $('body').addClass('open')
 
-  closeMenu = -> $('body').removeClass('open')
-
-  handleScroll = ->
-    if $(this).scrollTop() <= 10
+  handleScroll: (e) =>
+    if $(e.target).scrollTop() <= 10
       $('body').removeClass('scrolled')
     else
       $('body').addClass('scrolled')
 
-  gotoAnchor = ($el) ->
+  gotoAnchor: ($el) ->
     position = $($el.attr('href')).offset().top
     distance = position - $(document).scrollTop()
     speed = 10
@@ -26,20 +28,22 @@ $ ->
       scrollTop: position
     , Math.floor time
 
-  _gotoAnchor   = _.throttle gotoAnchor, 500, { trailing: false }
-  _handleScroll = _.throttle handleScroll, 300, true
-  _toggleMenu   = _.throttle toggleMenu, 300, true
+  constructor: ->
+    @_gotoAnchor   = _.throttle @gotoAnchor, 500, { trailing: false }
+    @_handleScroll = _.throttle @handleScroll, 300, true
+    @_toggleMenu   = _.throttle @toggleMenu, 300, true
 
-  $('.menu').on 'click', _toggleMenu
+    $('.menu').on 'click', @_toggleMenu
 
-  $('navigation [href]').on 'click', (e) =>
-    e.preventDefault()
-    closeMenu()
-    _gotoAnchor($(e.currentTarget))
+    $('.navigation [href]').on 'click', (e) =>
+      e.preventDefault()
+      @closeMenu()
+      @_gotoAnchor($(e.currentTarget))
 
+    $.each $('.title'), ->
+      offset = $(this).find('a').outerWidth()
+      $(this).find('.tooltip').css('left', offset)
 
-  $.each $('.title'), ->
-    offset = $(this).find('a').outerWidth()
-    $(this).find('.tooltip').css('left', offset)
+    $(document).on 'scroll', @_handleScroll
 
-  $(document).on 'scroll', _handleScroll
+module.exports = new Navigation()
