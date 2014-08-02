@@ -10,14 +10,14 @@ body {
   background: off-white;
 
   &.scrolled {
-    navigation {
+    .navigation {
       background: rgba(purple, .95);
       position: fixed;
     }
   }
 
   &.open {
-    navigation {
+    .navigation {
       height: 100%;
       background: rgba(purple, .95);
     }
@@ -147,7 +147,7 @@ addflash(name) {
 
 
 // --------------------------------------------------
-// navigation
+// .navigation
 //
 
 
@@ -160,7 +160,7 @@ addflash(name) {
   visibility: hidden;
 }
 
-navigation {
+.navigation {
   transition: all .3s ease;
   position: absolute;
   background:  transparent;
@@ -223,7 +223,7 @@ navigation {
 
     .menu { display: none; }
 
-    navigation {
+    .navigation {
       height: auto;
     }
     ul {
