@@ -44,8 +44,9 @@ p.subtitle {
 }
 
 a {
-  color: blue;
+  color: aqua;
   text-decoration: none;
+  transition: all .3s ease;
 }
 
 .button {
@@ -263,6 +264,16 @@ header {
 
   p {
     margin-bottom: 30px;
+  }
+
+  .github-link {
+    display: block;
+    a {
+      color: rgba(light-purple, 42%);
+      &:hover {
+        color: aqua;
+      }
+    }
   }
 
   @media medium-up {
