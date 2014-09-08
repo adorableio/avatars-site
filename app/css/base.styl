@@ -521,7 +521,7 @@ $logotype-shadow-color = rgba(red, 0);
 $logotype-sheen-color = white;
 
 footer {
-  padding: 60px 0 20px 0;
+  padding: 60px 0 0 0;
   text-align: center;
 
   p {
@@ -536,5 +536,22 @@ footer {
     #letters { fill: $logotype-letters-color; }
     #shadow { fill: $logotype-shadow-color; }
     #sheen { fill: $logotype-sheen-color; }
+  }
+}
+
+
+.sub-footer {
+  background-color: rgba(light-purple, 14%);
+  // box-shadow: 0 -1px 0 rgba(light-purple, 20%);
+  padding: 40px 0 20px 0;
+  margin: 10px 0 0 0;
+
+  h3 {
+    color: red;
+    font-size: 1em;
+  }
+  p {
+    color: rgba(purple, 50%);
+    font-size: .8em;
   }
 }
