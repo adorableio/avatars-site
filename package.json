@@ -49,6 +49,6 @@
     "url": "https://github.com/itsthatguy/firepit.git"
   },
   "devDependencies": {
-    "run-sequence": "^0.1.1"
+    "run-sequence": "^0.3.7"
   }
 }
