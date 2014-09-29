@@ -17,12 +17,21 @@ class Navigation
     else
       $('body').addClass('scrolled')
 
-    demoTolerance = Math.max(0, $('#demo').offset().top - $(document).scrollTop())
-    _.delay @setNameActive, 100 if demoTolerance < 100
+    demoTolerance = Math.max(0, Math.abs($('#demo').offset().top - $(document).scrollTop()))
+    _.delay(@highlightNameField, 100) if demoTolerance < 100
 
-  setNameActive: ->
-    # this should focus() the identifier field, and select() the text
-    return
+  highlightNameField: ->
+    $demo = $('#demo + section')
+    $nameField = $demo.find('#name')
+    $activeField = $demo.find('.input-container.active')
+
+    unless $activeField.length
+      $nameField.parent('.input-container').addClass('active')
+
+    $demo
+      .find('.input-container.active #name')
+      .focus()
+      .get(0).select()
 
   gotoAnchor: ($el) ->
     position = $($el.attr('href')).offset().top

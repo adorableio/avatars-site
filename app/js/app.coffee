@@ -33,6 +33,9 @@ class App
     return @setExtension(e, $for) if e.target.type == 'checkbox'
 
     # Otherwise
+    $('.input-container.active').removeClass('active')
+    $el.parent('.input-container').addClass('active')
+
     value = $(e.target).val()
     @[e.target.id] = value
     $for.text(value)
