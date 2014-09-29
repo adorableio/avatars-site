@@ -31,6 +31,7 @@ h1 {
   color: red;
   font-size: 48px;
 }
+
 h2 {
   color: red;
   font-size: 32px;
@@ -323,18 +324,28 @@ header {
   background-image: url('/assets/img/demo-bg.jpg');
   background-position: 50%;
   background-size: cover;
-  padding-bottom: 60px;
-  padding-top: 60px;
+  padding-bottom: 40px;
+  padding-top: 120px;
   position: relative;
-  text-align: center;
 
   @media medium-up {
     height: 560px;
   }
 
+  .input-container {}
+
   h1 {
+    background-image: url('/assets/img/the-magic.png');
+    width: 215px;
+    height: 132px;
     color: white;
+    font-size: 0;
     margin-bottom: 20px;
+    position: absolute;
+    top: -50px;
+    left: -36px;
+    z-index: 100;
+    pointer-events: none;
   }
 
   img {
@@ -408,15 +419,13 @@ header {
   }
 }
 
-
-
 // --------------------------------------------------
 // Form card stuff
 //
 .form-card {
   background: rgba(black, .8);
   margin-bottom: 20px;
-  padding: 20px 0 20px 20px;
+  padding: 0;
 
   [class*='-value'] {
     position: relative;
@@ -429,14 +438,30 @@ header {
     display: block;
     position: relative;
     padding-bottom: 15px;
+    padding-left: 20px;
     padding-right: 15px;
-    margin-bottom: 15px;
+    padding-top: 15px;
     text-align: left;
+
+    &:before {
+      bottom: 0;
+      content: '';
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 6px;
+    }
+    &.active:before { background: red; }
+    &:hover:before  { background: aqua; }
+
+    &:first-child {
+      padding-top: 20px;
+    }
 
     &:last-child {
       box-shadow: none;
       margin-bottom: 0;
-      padding-bottom: 0;
+      padding-bottom: 20px;
     }
 
     .checkbox {
@@ -451,9 +476,9 @@ header {
       margin-right: 0;
 
       input + label { color: rgba(white, .2); }
-      input:checked + label { color: aqua; }
+      input:checked + label { color: red; }
 
-      &:hover input + label { color: white; }
+      &:hover input + label { color: aqua; }
 
       label { line-height: 57px; }
     }

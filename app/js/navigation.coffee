@@ -1,8 +1,6 @@
-
-_    = require "underscore"
+_ = require "underscore"
 
 class Navigation
-
   closeMenu: ->
     $('body').removeClass('open')
 
@@ -18,6 +16,13 @@ class Navigation
       $('body').removeClass('scrolled')
     else
       $('body').addClass('scrolled')
+
+    demoTolerance = Math.max(0, $('#demo').offset().top - $(document).scrollTop())
+    _.delay @setNameActive, 100 if demoTolerance < 100
+
+  setNameActive: ->
+    # this should focus() the identifier field, and select() the text
+    return
 
   gotoAnchor: ($el) ->
     position = $($el.attr('href')).offset().top

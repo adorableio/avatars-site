@@ -76,37 +76,38 @@ html
 
     #demo
     section
-
       .row
-        .small-12.text-center.columns
-          h1 Zee demo!
-      .row
-        .small-12.medium-6.columns
-          .form-card
+        .small-12.medium-10.large-12.small-center.columns
+          .row
+            .small-12.columns
+              h1.the-magic The Magic
 
-            .input-container.name
-              label identifier
-              input#name.edit(type="text" data-for='.name-value' placeholder='enter text' value="abott@adorable.io" maxlength='32')
-              .checkbox
-                input#png.edit(type="checkbox" data-for='.png-value' checked='true')
-                label.inline(for='png') .png
+          .row
+            .small-12.medium-6.columns
+              .form-card
+                .input-container.name
+                  label identifier
+                  input#name.edit(type="text" data-for='.name-value' placeholder='enter text' value="abott@adorable.io" maxlength='32' autofocus='autofocus')
+                  .checkbox
+                    input#png.edit(type="checkbox" data-for='.png-value' checked='true')
+                    label.inline(for='png') .png
 
-            .input-container.size
-              label Size
-                span.size-value 285
-                span px
-              input#size.edit(type="range" value='285' min='40' max='285' data-for='.size-value')
+                .input-container.size
+                  label Size
+                    span.size-value 285
+                    span px
+                  input#size.edit(type="range" value='285' min='40' max='285' data-for='.size-value')
 
-            .input-container.radius
-              label Border-radius
-                span.radius-value 0
-                span %
-                small &nbsp; (just for funsies)
-              input#radius.edit(type="range" value='0' min='0' max='50' data-for='.radius-value')
+                .input-container.radius
+                  label Border-radius
+                    span.radius-value 0
+                    span %
+                    small &nbsp; (just for funsies)
+                  input#radius.edit(type="range" value='0' min='0' max='50' data-for='.radius-value')
 
-        .small-12.medium-6.columns
-          .container
-            img#demo-image(src="http://api.adorable.io/avatar/400x400/abott@adorable.io.png" style="width: 285px; height: 285px" alt='demo-image')
+            .small-12.medium-6.text-center.columns
+              .container
+                img#demo-image(src="http://api.adorable.io/avatar/400x400/abott@adorable.io.png" style="width: 285px; height: 285px" alt='demo-image')
 
       .row.code-row
         .code-wrapper
