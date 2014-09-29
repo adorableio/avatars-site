@@ -1,0 +1,93 @@
+doctype html
+include abott.jade
+html
+  head
+    title Adorable Avatars!
+    meta(name='viewport', content='initial-scale=1, maximum-scale=1, width=device-width, user-scalable=no')
+    link(href="/assets/css/main.css" rel="stylesheet" )
+
+  body
+
+    .navigation
+      a.menu
+        span Menu
+      ul
+        li
+          a(href="#top")
+            i.icon-top
+            | Tippy-top
+        li
+          a(href="#what")
+            i.icon-what
+            | What is this?
+        li
+          a(href="#faq")
+            i.icon-support
+            | FAQ &amp; Support
+        li
+          a(href="#demo")
+            i.icon-demo
+            | Try it out
+
+    include top.jade
+    include what.jade
+    include demo.jade
+
+    footer
+      .row
+        .small-12.columns
+          p.adorable-creation
+            | Adorable Avatars is an <a href="http://adorable.io" title="adorable.io">
+            include ../img/adorable.svg
+            | </a> creation.
+
+
+      include footer/faq.jade
+      include footer/support.jade
+
+    script(src="/vendor/jquery/dist/jquery.min.js")
+    script(src="/vendor/zeroclipboard/dist/ZeroClipboard.min.js")
+    script(src="/assets/js/app.js")
+
+    script(src="//use.typekit.net/vge6uut.js")
+    script.
+      //- tepeskwarkt
+      try{Typekit.load();}catch(e){}
+      //- ggigielleyiks
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-24198715-4', 'auto');
+      ga('send', 'pageview');
+
+      //- inspectletablsds
+      window.__insp = window.__insp || [];
+      __insp.push(['wid', 792373460]);
+      (function() {
+        function __ldinsp() {
+          var insp   = document.createElement('script');
+          insp.type  = 'text/javascript';
+          insp.async = true;
+          insp.id    = "inspsync";
+          insp.src   = ('https:' == document.location.protocol ? 'https' : 'http') + '://cdn.inspectlet.com/inspectlet.js';
+          var x      = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(insp, x);
+        }
+        if (window.attachEvent) { window.attachEvent('onload', __ldinsp); }
+        else { window.addEventListener('load', __ldinsp, false); }
+      })();
+      var _paq = _paq || [];
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function() {
+        var u="//adorable-piwik.herokuapp.com/";
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', 11]);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+      })();
+    noscript
+      p
+        img(src="//adorable-piwik.herokuapp.com/piwik.php?idsite=11" style="border:0;" alt="")
+

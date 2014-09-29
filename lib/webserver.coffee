@@ -10,6 +10,7 @@ app           = express()
 webserver     = http.createServer(app)
 basePath      = path.join(__dirname, '..')
 generatedPath = path.join(basePath, '.generated')
+viewPath      = path.join(generatedPath, 'views')
 vendorPath    = path.join(basePath, 'bower_components')
 faviconPath   = path.join(basePath, 'app', 'favicon.ico')
 
@@ -33,12 +34,11 @@ webserver.on 'listening', ->
   console.log "[Firepit] Server running at http://#{address.address}:#{address.port}".green
 
 # Routes
-app.get '/', (req, res) -> res.render(generatedPath + '/index.html')
+app.get '/', (req, res) -> res.render(viewPath + '/index.html')
 
 app.get /^\/(\w+)(?:\.)?(\w+)?/, (req, res) ->
   path = req.params[0]
   ext  = req.params[1] ? "html"
-  res.render(path.join(generatedPath, "#{path}.#{ext}"))
-
+  res.render(path.join(viewPath, "#{path}.#{ext}"))
 
 module.exports = app
