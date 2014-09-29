@@ -28,11 +28,11 @@ body {
 //
 
 h1 {
-  color: red;
+  color: header-font-color;
   font-size: 48px;
 }
 h2 {
-  color: red;
+  color: header-font-color;
   font-size: 32px;
   line-height: 1.4;
   margin-bottom: .6em;
@@ -315,7 +315,6 @@ header {
   }
 }
 
-
 // --------------------------------------------------
 // #demo
 //
@@ -522,7 +521,6 @@ input[type=checkbox] {
   }
 }
 
-
 // --------------------------------------------------
 // footer
 //
@@ -550,16 +548,50 @@ footer {
   }
 }
 
+.adorable-creation {
+  margin-bottom: 10px;
+}
 
+
+// --------------------------------------------------
+// #faq
+//
+#faq + .sub-footer {
+  box-shadow: 0 1px rgba(light-purple, 14%);
+  padding-bottom: 60px;
+  padding-top: 60px;
+
+  text-align: center;
+  h1 {
+    color: base-font-color;
+    font-weight: 100;
+    line-height: 1.2;
+    margin-bottom: .5em;
+  }
+
+  dl {
+    text-align: left;
+    dt {
+      color: header-font-color;
+      font-family: header-font;
+      font-size: 1.4em;
+      font-weight: 300;
+    }
+    dd {
+      margin-left: 0;
+    }
+  }
+}
 .sub-footer {
   background-color: rgba(light-purple, 14%);
   // box-shadow: 0 -1px 0 rgba(light-purple, 20%);
   padding: 40px 0 20px 0;
-  margin: 10px 0 0 0;
+  margin: 0;
 
   h3 {
-    color: red;
+    color: header-font-color;
     font-size: 1em;
+    font-weight: 300;
   }
   p {
     color: rgba(purple, 50%);
