@@ -39,6 +39,6 @@ app.get '/', (req, res) -> res.render(viewPath + '/index.html')
 app.get /^\/(\w+)(?:\.)?(\w+)?/, (req, res) ->
   path = req.params[0]
   ext  = req.params[1] ? "html"
-  res.render(path.join(viewPath, "#{path}.#{ext}"))
+  res.render(viewPath + "/#{path}.#{ext}")
 
 module.exports = app
