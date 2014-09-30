@@ -5,45 +5,76 @@
       h1 Frequently Asked Questions
 
       .row
-        .small-12.medium-6.columns
+        .small-12.columns
           dl
-            dt How is this different from something like lorempixel.com?
-            dd.
-              Those services generate a random image on every request, while Adorable Avatars delivers consistent avatars.
-              If you request the same avatar (e.g. <code>http://api.adorable.io/avatars/awesomesauce</code>) multiple times, you'll get <b>the same avatar</b> each time.
-              When you're associating an image with a user's identity, that kind of thing matters.
+            dt How is this different from services like lorempixel.com?
+            dd
+              p.
+                Those services generate a random image on every request, while
+                Adorable Avatars delivers consistent avatars.
+              p.
+                If you request the same avatar multiple times, you'll get
+                <b>the same avatar</b> each time. That kind of thing matters
+                when you're associating an image with a user's identity.
 
-        .small-12.medium-6.columns
-          dl
-            dt What happened to the old avatars?
-            dd Have no fear, they're still there! We updated our demo to showcase our generated avatars, but the original avatars are still in the same place: #{''}
-              code http://api.adorable.io/avatar/:your_identifier
-
-        .small-12.medium-6.columns
-          dl
-            dt What does it do best?
-            dd.
-              It works best as a placeholder service.
-              If you need avatars where you would otherwise have nothing, these fill that gap.
-
+      .row
         .small-12.medium-6.columns
           dl
             dt Will you be adding more avatars?
             dd
-              | Our service can currently generate over 5,000 different avatars. If you're using our build-an-avatar API, there are about 9.6 <b>billion</b> possible avatars.
-              | However, our original avatars were done by the immensely talented #{''}
-              a(href='https://dribbble.com/missingdink') missingdink
-              | , and we'd love to feature more artists' series. If you're interested in contributing, please #{''}
-              a(href='#support') get in touch
-              | .
+              p.
+                Absolutely! Our original avatars were done by the immensely
+                talented <a href='https://dribbble.com/missingdink'>missingdink</a>,
+                and we'd love to feature more artists' series. If you're
+                interested in contributing, please <a href='#support'>get in touch</a>.
 
         .small-12.medium-6.columns
           dl
-            dt But I want to use the same avatar forever... and ever... specifically with your service!
-            dd Good news! There's now a way for you to build your avatar from scratch! Requests of the form #{''}
-              code http://api.adorable.io/avatars/face/:eyes/:nose/:mouth/:color
-              |  will build an avatar out of those specified pieces.
-              | Here's an example:
-              img(src='http://avatars-site-staging.herokuapp.com/avatars/face/eyes4/nose3/mouth5/de7878' alt='Example face!' style='width: 100px;')
-              br
-              | Have fun, and share your favorites with us!
+            dt How many avatars are there?
+            dd
+              p.
+                Our service can currently generate over 5,000 different avatars.
+                If you're using our build-an-avatar API, there are about
+                9.6 <b>billion</b> possibilities.
+
+      .row
+        .small-12.medium-6.columns
+          dl
+            dt What happened to the old avatars?
+            dd
+              p.
+                Have no fear, they're still there! We updated our demo to
+                showcase our generated avatars, but the original avatars are still
+                in the same place: <code>/avatar/:your_identifier</code>
+
+        .small-12.medium-6.columns
+          dl
+            dt What does your service do best?
+            dd
+              p.
+                It works best as a placeholder service.
+                Adorable Avatars gives you images with humanity when you have
+                nothing better than silhouettes, random shapes, or empty space.
+
+
+      .row
+        .small-12.columns
+          dl
+            dt Can I use the same avatar forever?
+            dd
+              .row.expand
+                .small-12.medium-9.columns
+                  p.
+                    Totally! There's now a way for you to build your avatar from
+                    scratch! Requests of the form
+                    <code>/avatars/face/:eyes/:nose/:mouth/:color</code>
+                    will build an avatar out of those specified pieces.
+
+                .small-9.medium-3.columns.text-center
+                  img(src='http://avatars-staging.herokuapp.com/avatars/face/eyes4/nose3/mouth7/8e8895' alt='Example face!')
+                  h3 (Example)
+
+              .row.expand
+                .small-12.columns.text-center
+                  h2.
+                    Have fun, and <a href="http://twitter.com/adorableio" class='special'>share</a> your favorites with us!
