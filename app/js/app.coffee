@@ -1,4 +1,3 @@
-
 _          = require('underscore')
 characters = require('./characters')
 navigation = require('./navigation')
@@ -74,12 +73,9 @@ class App
       'height': @size
       'border-radius': "#{@radius}%"
 
-
 client = new ZeroClipboard($("#copy-button"))
 
 client.on "ready", (readyEvent) ->
-  # alert( "ZeroClipboard SWF is ready!" )
-
   client.on "copy", (e) ->
     clipboard = e.clipboardData
     clipboard.setData('text/plain', app.url)

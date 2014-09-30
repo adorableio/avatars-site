@@ -25,9 +25,12 @@ class Navigation
     $nameField = $demo.find('#name')
     $activeField = $demo.find('.input-container.active')
 
+    # Make #name the default .active field
     unless $activeField.length
       $nameField.parent('.input-container').addClass('active')
 
+    # Javascript kung-fu
+    # If #name is the .active field, focus and select its text. CHOP!
     $demo
       .find('.input-container.active #name')
       .focus()
