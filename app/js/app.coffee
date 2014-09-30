@@ -24,6 +24,7 @@ class App
     $('input[type=text]').on 'input', @_requestImage
     $('input').on 'change', @requestImage
     $('#png').on 'change', @handleInputEvent
+    $('.input-container').on 'click', @setActive
 
   handleInputEvent: (e) =>
     $el = $(e.target)
@@ -33,15 +34,20 @@ class App
     return @setExtension(e, $for) if e.target.type == 'checkbox'
 
     # Otherwise
-    $('.input-container.active').removeClass('active')
-    $el.parent('.input-container').addClass('active')
+    @setActive($el)
 
-    value = $(e.target).val()
+    value = $el.val()
     @[e.target.id] = value
     $for.text(value)
 
     @url = "#{@BASEURL}#{@size}/#{@name}"
     @_setImageStyles()
+
+  setActive: (el) ->
+    el = el.target if el.type
+    $el = $(el)
+    $('.input-container').removeClass('active')
+    $el.closest('.input-container').addClass('active')
 
   requestImage: (e) =>
     $el = $(e.target)
