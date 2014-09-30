@@ -1,8 +1,6 @@
-
-_    = require "underscore"
+_ = require "underscore"
 
 class Navigation
-
   closeMenu: ->
     $('body').removeClass('open')
 
@@ -18,6 +16,25 @@ class Navigation
       $('body').removeClass('scrolled')
     else
       $('body').addClass('scrolled')
+
+    demoTolerance = Math.max(0, Math.abs($('#demo').offset().top - $(document).scrollTop()))
+    _.delay(@highlightNameField, 100) if demoTolerance < 100
+
+  highlightNameField: ->
+    $demo = $('#demo + section')
+    $nameField = $demo.find('#name')
+    $activeField = $demo.find('.input-container.active')
+
+    # Make #name the default .active field
+    unless $activeField.length
+      $nameField.parent('.input-container').addClass('active')
+
+    # Javascript kung-fu
+    # If #name is the .active field, focus and select its text. CHOP!
+    $demo
+      .find('.input-container.active #name')
+      .focus()
+      .get(0).select()
 
   gotoAnchor: ($el) ->
     position = $($el.attr('href')).offset().top

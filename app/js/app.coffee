@@ -1,4 +1,3 @@
-
 _          = require('underscore')
 characters = require('./characters')
 navigation = require('./navigation')
@@ -24,6 +23,7 @@ class App
     $('input[type=text]').on 'input', @_requestImage
     $('input').on 'change', @requestImage
     $('#png').on 'change', @handleInputEvent
+    $('.input-container').on 'click', @setActive
 
   handleInputEvent: (e) =>
     $el = $(e.target)
@@ -33,12 +33,20 @@ class App
     return @setExtension(e, $for) if e.target.type == 'checkbox'
 
     # Otherwise
-    value = $(e.target).val()
+    @setActive($el)
+
+    value = $el.val()
     @[e.target.id] = value
     $for.text(value)
 
     @url = "#{@BASEURL}#{@size}/#{@name}"
     @_setImageStyles()
+
+  setActive: (el) ->
+    el = el.target if el.type
+    $el = $(el)
+    $('.input-container').removeClass('active')
+    $el.closest('.input-container').addClass('active')
 
   requestImage: (e) =>
     $el = $(e.target)
@@ -65,12 +73,9 @@ class App
       'height': @size
       'border-radius': "#{@radius}%"
 
-
 client = new ZeroClipboard($("#copy-button"))
 
 client.on "ready", (readyEvent) ->
-  # alert( "ZeroClipboard SWF is ready!" )
-
   client.on "copy", (e) ->
     clipboard = e.clipboardData
     clipboard.setData('text/plain', app.url)

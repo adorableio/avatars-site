@@ -16,6 +16,10 @@ small-up = screen;
 medium-up = "screen and (min-width: %s)" % medium-range;
 large-up = "screen and (min-width: %s)" % large-range;
 
+small-only = "screen and (max-width: %s)" % medium-range;
+medium-only = "screen and (max-width: %s)" % large-range;
+large-only = "screen and (min-width: %s)" % large-range;
+
 
 .column,
 .columns {
@@ -42,9 +46,25 @@ build-grid(class = 'small', columns = 12) {
       padding-right: (column-gutter / 2);
     }
   }
-  .{class}-center {
-    float: none;
-    margin: 0 auto;
+
+  // 'size-up' center classes
+  query = "%s-up" % class;
+
+  @media query {
+    .{class}-center {
+      float: none;
+      margin: 0 auto;
+    }
+  }
+
+  // 'size-only' center classes
+  query = "%s-only" % class;
+
+  @media query {
+    .{class}-only-center {
+      float: none;
+      margin: 0 auto;
+    }
   }
 }
 
