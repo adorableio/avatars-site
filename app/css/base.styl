@@ -286,7 +286,7 @@ header {
   .sub-section {
     h1 { color: white; }
     p { color: white; }
-    background-color: dark-aqua;
+    background: linear-gradient(dark-aqua, mix(aqua, purple));
     margin-bottom: 60px;
     padding-top: 60px;
   }
@@ -579,6 +579,10 @@ footer {
 
   p {
     color: rgba(purple, 50%);
-    font-size: .8em;
+    font-size: 1em;
+  }
+
+  #support + & {
+    p { font-size: .8em; }
   }
 }
