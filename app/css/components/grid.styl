@@ -74,4 +74,9 @@ build-grid();
   width: 100%;
   max-width: row-width;
   clearfix();
+
+  &.expand {
+    margin-left: -(column-gutter / 2);
+    margin-right: -(column-gutter / 2);
+  }
 }
