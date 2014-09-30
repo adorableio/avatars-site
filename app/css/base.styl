@@ -343,9 +343,13 @@ header {
     margin-bottom: 20px;
     position: absolute;
     top: -50px;
-    left: -36px;
+    left: -8px;
     z-index: 100;
     pointer-events: none;
+
+    @media medium-up {
+      left: -36px;
+    }
   }
 
   img {
