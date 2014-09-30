@@ -449,10 +449,22 @@ header {
       left: 0;
       position: absolute;
       top: 0;
-      width: 6px;
+      transition: all .2s ease-out;
+      width: 0;
     }
-    &.active:before { background: red; }
-    &:hover:before  { background: aqua; }
+
+    &.active {
+      &:before,
+      &:hover:before {
+        background: red;
+        width: 6px;
+      }
+    }
+
+    &:hover:before {
+      width: 6px;
+      background: aqua;
+    }
 
     &:first-child {
       padding-top: 20px;
