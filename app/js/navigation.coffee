@@ -23,18 +23,18 @@ class Navigation
   highlightNameField: ->
     $demo = $('#demo + section')
     $nameField = $demo.find('#name')
-    $activeField = $demo.find('.input-container.active')
+    aFieldIsActive = $demo.find('.input-container.active').length
 
     # Make #name the default .active field
-    unless $activeField.length
+    unless aFieldIsActive
       $nameField.parent('.input-container').addClass('active')
 
-    # Javascript kung-fu
-    # If #name is the .active field, focus and select its text. CHOP!
-    $demo
-      .find('.input-container.active #name')
-      .focus()
-      .get(0).select()
+    nameFieldIsActive = $demo.find('.input-container.active #name').length
+
+    if nameFieldIsActive
+      $nameField
+        .focus()
+        .get(0).select()
 
   gotoAnchor: ($el) ->
     position = $($el.attr('href')).offset().top
