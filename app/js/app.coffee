@@ -36,7 +36,7 @@ class App
     @setActive($el)
 
     value = $el.val()
-    @[e.target.id] = value
+    @[e.target.id] = encodeURIComponent(value)
     $for.text(value)
 
     @url = "#{@BASEURL}#{@size}/#{@name}"
