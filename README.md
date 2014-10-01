@@ -20,7 +20,7 @@
 
 ### Running
 
-1. Generate assets and run the server: `npm start`
+1. `npm start` will generate assets and start the server.
 2. Browse to: `http://localhost:3002`
 
 
