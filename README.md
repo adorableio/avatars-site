@@ -20,9 +20,8 @@
 
 ### Running
 
-1. For asset generation: `gulp watch`
-2. Run the server: `npm start`
-3. Browse to: `http://localhost:3002`
+1. `npm start` will generate assets and start the server.
+2. Browse to: `http://localhost:3002`
 
 
 ### Deploying
