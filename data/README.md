@@ -37,23 +37,23 @@ Use Adorable Avatars as a fallback and get rid of those gray silhouettes!
 Here's a quick example in Haml:
 ```haml
 .user
-  %img.avatar(src="http://api.adorable.io/avatar/#{user.name}")
+  %img.avatar(src="https://api.adorable.io/avatar/#{user.name}")
 ```
 
 ### Requesting an Avatar
 The most basic request is of the following form:
 
-    http://api.adorable.io/avatar/<identifier>
+    https://api.adorable.io/avatar/<identifier>
 
 Where `identifier` is the unique identifier for your user (name, email, md5, etc.).
 This will serve the image in its default size.
 
 To request an avatar with specific dimensions, use the following form:
 
-    http://api.adorable.io/avatar/<dimensions>/<identifier>
+    https://api.adorable.io/avatar/<dimensions>/<identifier>
 
 Where `dimensions` specifies the width and height, e.g. "300x300" or "400x200."
 
 So, if you want your friend Bob's avatar, with a width of 100px and a height of 200px, the URL would be:
 
-    http://api.adorable.io/avatar/100x200/bob
+    https://api.adorable.io/avatar/100x200/bob

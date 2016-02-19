@@ -3,7 +3,7 @@ characters = require('./characters')
 navigation = require('./navigation')
 
 class App
-  BASEURL  : "http://api.adorable.io/avatars/"
+  BASEURL  : "https://api.adorable.io/avatars/"
   url      : ''
   size     : "285"
   radius   : "0"
