@@ -14,9 +14,15 @@
 
 ### Setup
 
-1. Clone this repo
-2. run `npm install`
+* Clone this repo.
+* Install and activate the required version of node.
 
+```bash
+nvm install  # install
+nvm use      # activate
+```
+
+* Run `npm install`.
 
 ### Running
 
