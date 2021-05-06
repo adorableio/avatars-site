@@ -42,7 +42,7 @@
     "run-sequence": "^0.3.7",
     "serve-favicon": "^2.4.5",
     "stylus": "^0.42.3",
-    "underscore": "^1.8.3",
+    "underscore": "^1.12.1",
     "win-spawn": "^2.0.0"
   },
   "repository": {
